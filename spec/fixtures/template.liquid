@@ -1,0 +1,16 @@
+# Awesome List Generator
+
+## Contents
+
+{% assign categories = data.resources | map: "type" | uniq | sort_natural %}
+{%- for category in categories -%}
+- [{{ category | capitalize }}](#{{ category }})
+{% endfor %}
+
+{%- for category in categories %}
+{%- assign category_resources = data.resources | where: "type", category | sort_natural %}
+## {{category | capitalize }}
+{% for resource in category_resources %}
+- [{{ resource.name}}]({{resource.url}}) - {{resource.description}}
+{%- endfor %}
+{% endfor %}

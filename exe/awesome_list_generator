@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require "awesome_list_generator"
+
+AwesomeListGenerator::CLI.start(ARGV)
